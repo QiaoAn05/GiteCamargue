@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <div id='home'></div>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('home') }}
+    {% endblock %}
+{% endblock %}
