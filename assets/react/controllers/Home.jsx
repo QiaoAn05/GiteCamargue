@@ -4,7 +4,7 @@ export default function (props) {
     
     return (
     
-    <div>Hello {props.fullName}</div>
+    <div className='card text-danger'>Hello {props.fullName}</div>
     
     );
 }
