@@ -9,9 +9,20 @@ body {
     flex-grow: 1;
 
     .hero-banner {
-        background-image: src("../images/portail.jpg");
+        background-image: url("../images/portail.jpg");
         background-size: cover;
         background-position: center;
+        height: 350px;
+
+        .container-fluid {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     p {
@@ -20,6 +31,6 @@ body {
 
     img {
         width: 400px;
-        border-radius: 5px;
+        border-radius: 15px;
     }
 }

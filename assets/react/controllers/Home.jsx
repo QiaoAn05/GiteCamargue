@@ -6,10 +6,10 @@ export default function () {
     return (
     
     <div className='text-dark mb-5'>
-        <div className="hero-banner bg-dark opacity-50 d-flex align-items-center">
-            <div className="container text-white">
+        <div className="hero-banner d-flex">
+            <div className="container-fluid text-white text-center">
                 <p className='text-center'>Venez découvrir la Camargue au</p>
-                <h1 className="text-center">Mas de Guinot</h1>
+                <h1>Mas de Guinot</h1>
             </div>
         </div>
 
