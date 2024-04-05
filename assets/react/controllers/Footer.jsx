@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Footer() {
-  return (
-    <footer className="bg-dark text-white py-4">
+export default function () {
+  return <>
+    <div className="bg-dark text-white py-4">
       <div className="container">
         <div className="row">
           <div className="col-12 col-md-6 mb-4 mb-md-0">
@@ -34,6 +34,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </div>
+    </>
 }

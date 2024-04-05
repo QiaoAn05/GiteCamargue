@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Le Mas de Guinot{% endblock %}
+{% block title %}Nos gites{% endblock %}
 
 {% block body %}
-    <div id='home'></div>
+    <div id='gite'></div>
     {% block javascripts %}
         {{ parent() }}
-        {{ encore_entry_script_tags('home') }}
+        {{ encore_entry_script_tags('gite') }}
     {% endblock %}
 {% endblock %}
+

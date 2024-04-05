@@ -3,7 +3,7 @@ import accueil from "../../images/photos-accueil-mas.jpg";
 
 export default function () {
     
-    return (
+    return <>
     
     <div className='text-dark mb-5'>
         <div className="hero-banner d-flex">
@@ -78,5 +78,5 @@ export default function () {
 
     </div>
     
-    );
+    </>
 }
