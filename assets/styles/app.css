@@ -5,7 +5,7 @@ body {
     height: 100vh;
 }
 
-#home {
+#home, #gite {
     flex-grow: 1;
 
     .hero-banner {
@@ -39,3 +39,7 @@ body {
         padding: 20px 0;
     }
 }
+
+/* #gite {
+    flex-grow: 1;
+} */
