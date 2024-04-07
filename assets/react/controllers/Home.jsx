@@ -44,8 +44,8 @@ export default function () {
                             <p className="mb-5 mx-5">
                             Venez découvrir nos gîtes en plein coeur d'une Camargue resplendissante !</p>
                             <div className="d-flex justify-content-center">
-                                <button className="btn btn-light mx-2">Nos gîtes</button>
-                                <button className="btn btn-light mx-2">Nos tarifs</button>
+                                <a href="/gite"><button className="btn btn-light mx-2">Nos gîtes</button></a>
+                                <a href="/tarifs"><button className="btn btn-light mx-2">Nos tarifs</button></a>
                             </div>
 
                         </div>

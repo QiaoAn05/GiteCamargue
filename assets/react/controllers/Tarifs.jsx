@@ -9,7 +9,7 @@ export default function () {
                 </div>
             </div>
             <section className='container py-1 mt-4'>
-                <table class="table">
+                <table className="table">
                     <thead className='table-dark'>
                         <tr>
                         <th scope="col">Le Mazet - 4pers.</th>
@@ -39,7 +39,7 @@ export default function () {
                         </tr>
                     </tbody>
                 </table>
-                <table class="table">
+                <table className="table">
                     <thead className='table-dark'>
                         <tr>
                         <th scope="col">Le Piegonnier - 5pers.</th>
@@ -69,7 +69,7 @@ export default function () {
                         </tr>
                     </tbody>
                 </table>
-                <table class="table">
+                <table className="table">
                     <thead className='table-dark'>
                         <tr>
                         <th scope="col">La Bergerie - 6pers.</th>

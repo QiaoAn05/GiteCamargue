@@ -22,6 +22,7 @@ Encore
      */
     .addEntry('app', './assets/app.js')
     .addEntry('home', './assets/react/controllers/home.js')
+    .addEntry('about', './assets/react/controllers/about.js')
     .addEntry('gite', './assets/react/controllers/gite.js')
     .addEntry('tarifs', './assets/react/controllers/tarifs.js')
     .addEntry('header', './assets/react/controllers/header.js')

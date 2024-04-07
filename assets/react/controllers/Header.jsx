@@ -16,7 +16,7 @@ export default function () {
                 <a className="nav-link active" aria-current="page" href="/">Accueil</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">A propos</a>
+                <a className="nav-link" href="/about">A propos</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/gite">Nos Gîtes</a>
