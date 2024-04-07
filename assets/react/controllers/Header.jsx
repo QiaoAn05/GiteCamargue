@@ -22,7 +22,7 @@ export default function () {
                 <a className="nav-link" href="/gite">Nos Gîtes</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Tarifs</a>
+                <a className="nav-link" href="/tarifs">Tarifs</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#contact">Contact</a>

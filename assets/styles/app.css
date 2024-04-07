@@ -5,7 +5,7 @@ body {
     height: 100vh;
 }
 
-#home, #gite {
+#home, #gite, #tarifs {
     flex-grow: 1;
 
     .hero-banner {

@@ -19,7 +19,7 @@ export default function () {
                                 <img src={ Mazet } alt="photo du Mazet" className='card-img' />
                                 <h5 className='card-title'>Le Mazet</h5>
                                 <p className='card-text'>Contenu gite 1</p>
-                                <a href="/tarif" className='text-dark'>Voir le tarif</a>
+                                <a href="/tarifs" className='text-dark'>Voir le tarif</a>
                             </div>
                         </div>
                     </div>
@@ -29,7 +29,7 @@ export default function () {
                                 <img src={ Pigeonnier } alt="photo du Pigeonnier" className='card-img' />
                                 <h5 className='card-title'>Le Pigeonnier</h5>
                                 <p className='card-text'>Contenu gite 2</p>
-                                <a href="/tarif" className='text-dark'>Voir le tarif</a>
+                                <a href="/tarifs" className='text-dark'>Voir le tarif</a>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@ export default function () {
                                 <img src={ Bergerie } alt="photo de la Bergerie" className='card-img' />
                                 <h5 className='card-title'>La Bergerie</h5>
                                 <p className='card-text'>Contenu gite 3</p>
-                                <a href="/tarif" className='text-dark'>Voir le tarif</a>
+                                <a href="/tarifs" className='text-dark'>Voir le tarif</a>
                             </div>
                         </div>
                     </div>
