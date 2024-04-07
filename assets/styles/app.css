@@ -29,7 +29,7 @@ body {
         text-align: justify;
     }
 
-    img {
+    .img-section {
         width: 400px;
         border-radius: 15px;
     }
@@ -40,6 +40,7 @@ body {
     }
 }
 
-/* #gite {
-    flex-grow: 1;
-} */
+.card-img {
+    border-radius: 0;
+    width: 300px;
+}

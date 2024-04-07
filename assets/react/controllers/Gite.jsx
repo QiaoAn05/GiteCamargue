@@ -1,6 +1,9 @@
 import React from 'react';
+import Mazet from '../../images/gite-mazet.jpg';
+import Pigeonnier from '../../images/gite-pigeonnier.jpg';
+import Bergerie from '../../images/gite-bergerie.jpg';
 
-export default function Home() {
+export default function () {
     return (
         <>
             <div className="hero-banner d-flex">
@@ -10,27 +13,33 @@ export default function Home() {
             </div>
             <section className='container py-5'>
                 <div className='row'>
-                    <div className='col-md-4'>
+                    <div className='col-12 col-lg-4 mb-4'>
                         <div className='card'>
                             <div className='card-body'>
-                                <h5 className='card-title'>Gite 1</h5>
+                                <img src={ Mazet } alt="photo du Mazet" className='card-img' />
+                                <h5 className='card-title'>Le Mazet</h5>
                                 <p className='card-text'>Contenu gite 1</p>
+                                <a href="/tarif" className='text-dark'>Voir le tarif</a>
                             </div>
                         </div>
                     </div>
-                    <div className='col-md-4'>
+                    <div className='col-12 col-lg-4 mb-4'>
                         <div className='card'>
                             <div className='card-body'>
-                                <h5 className='card-title'>Gite 2</h5>
+                                <img src={ Pigeonnier } alt="photo du Pigeonnier" className='card-img' />
+                                <h5 className='card-title'>Le Pigeonnier</h5>
                                 <p className='card-text'>Contenu gite 2</p>
+                                <a href="/tarif" className='text-dark'>Voir le tarif</a>
                             </div>
                         </div>
                     </div>
-                    <div className='col-md-4'>
+                    <div className='col-12 col-lg-4 mb-4'>
                         <div className='card'>
                             <div className='card-body'>
-                                <h5 className='card-title'>Gite 3</h5>
+                                <img src={ Bergerie } alt="photo de la Bergerie" className='card-img' />
+                                <h5 className='card-title'>La Bergerie</h5>
                                 <p className='card-text'>Contenu gite 3</p>
+                                <a href="/tarif" className='text-dark'>Voir le tarif</a>
                             </div>
                         </div>
                     </div>

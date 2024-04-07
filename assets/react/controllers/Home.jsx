@@ -26,7 +26,7 @@ export default function () {
                         </div>
                     </div>
                     <div className="col-md-6 text-center">
-                        <img src={accueil} alt="Description de l'image" className="img-fluid" />
+                        <img src={accueil} alt="Description de l'image" className="img-fluid img-section" />
                     </div>
                 </div>
             </div>
@@ -36,7 +36,7 @@ export default function () {
             <div className="container">
                 <div className="row">
                     <div className="col-md-6 text-center">
-                        <img src={accueil} alt="Description de l'image" className="img-fluid" />
+                        <img src={accueil} alt="Description de l'image" className="img-fluid img-section" />
                     </div>
                     <div className="col-md-6">
                         <div className="d-flex flex-column justify-content-center h-100">
