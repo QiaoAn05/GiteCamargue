@@ -8,9 +8,9 @@ export default function () {
                     <h1>Contact</h1>
                 </div>
             </div>
-            <section className='container-md p-5 my-5 col-6 col-sm-12'>
-                <h2 id="contact" className='text-center mb-5'>Contact</h2>
-                <form action="submit" className="mx-auto" style={{ maxWidth: "500px" }}>
+            <section className='container-md p-5 my-5'  style={{ maxWidth: "500px" }}>
+                <h2 id="contact" className='text-center mb-5'>Formulaire de contact</h2>
+                <form action="submit" className="mx-auto">
                     <div className="mb-3">
                         <label htmlFor="name" className="form-label">Nom :</label>
                         <input type="text" className="form-control" id="name" name="name" placeholder="Entrez votre nom" required />

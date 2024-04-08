@@ -22,7 +22,9 @@ export default function () {
                             <p className="mb-5 mx-5">
                             La famille Crozat vous accueillent au Mas de Guinot , domaine rizicole de 80 hectares situé au cœur du parc régional de Camargue entre Arles et Salin de Giraud.
                             </p>
-                            <button className="btn btn-dark text-white mx-auto">A propos</button>
+                            <div className="d-flex justify-content-center">
+                                <a href="/about"><button className="btn btn-dark text-white mx-auto">A propos</button></a>
+                            </div>
                         </div>
                     </div>
                     <div className="col-md-6 text-center">

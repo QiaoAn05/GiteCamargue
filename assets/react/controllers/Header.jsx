@@ -28,7 +28,7 @@ export default function () {
                 <a className="nav-link" href="/contact">Contact</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Connection/Déconnection</a>
+                <a className="nav-link" href="#">Connexion/Déconnexion</a>
               </li>
             </ul>
           </div>

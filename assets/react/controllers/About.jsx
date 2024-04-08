@@ -9,7 +9,7 @@ export default function () {
                     <h1>A Propos</h1>
                 </div>
             </div>
-            <section className='container py-1 mt-4'>
+            <section className='container py-1 mt-4 text-center'>
               <h2>BIENVENUE AU MAS DE GUINOT</h2>
               <p className='text-justify my-3'>
                 La famille Crozat vous accueillent au Mas de Guinot , domaine rizicole de 80 hectares situé au cœur du parc régional de Camargue entre Arles et Salin de Giraud.
