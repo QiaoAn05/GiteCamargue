@@ -12,6 +12,13 @@ export default function () {
                 </div>
             </div>
             <section className='container py-5'>
+
+                <div className='row'>
+                    <div className="d-flex mb-3">
+                        <button className='btn btn-dark'>Ajouter un gite</button>
+                    </div>   
+                </div>
+
                 <div className='row'>
                     <div className='col-12 col-lg-4 mb-4'>
                         <div className='card'>
@@ -19,7 +26,11 @@ export default function () {
                                 <img src={ Mazet } alt="photo du Mazet" className='card-img' />
                                 <h5 className='card-title'>Le Mazet</h5>
                                 <p className='card-text'>Contenu gite 1</p>
-                                <a href="/tarifs" className='text-dark'>Voir le tarif</a>
+                                <div>
+                                    <a href="/tarifs" className='text-dark'>Voir le tarif</a>
+                                    
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
