@@ -25,7 +25,7 @@ export default function () {
                 <a className="nav-link" href="/tarifs">Tarifs</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#contact">Contact</a>
+                <a className="nav-link" href="/contact">Contact</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">Connection/Déconnection</a>

@@ -54,27 +54,13 @@ export default function () {
             </div>
         </section>
 
-        <section  className="py-5">
-            <div className="container-md">
-                <h2 id="contact" className='text-center mb-5'>Contact</h2>
-                <form action="submit" className="mx-auto" style={{ maxWidth: "500px" }}>
-                    <div className="mb-3">
-                        <label htmlFor="name" className="form-label">Nom :</label>
-                        <input type="text" className="form-control" id="name" name="name" placeholder="Entrez votre nom" required />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="email" className="form-label">Email :</label>
-                        <input type="email" className="form-control" id="email" name="email" placeholder="Entrez votre email" required />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="message" className="form-label">Message :</label>
-                        <textarea className="form-control" id="message" name="message" rows="5" placeholder="Entrez votre message" required></textarea>
-                    </div>
-                    <button type="submit" className="btn btn-dark text-white w-100">Envoyer</button>
-                </form>
+        <section className='py-5 container'>
+            <h2 className='text-center mb-4'>Nous contacter</h2>
+            <p className='text-center mb-3'>N'hésitez pas à nous contacter pour plus d'information !</p>
+            <div className="d-flex justify-content-center">
+                <a href="/contact"><button className="btn btn-dark text-white">Formulaire de contact</button></a>
             </div>
         </section>
-
 
     </div>
     
