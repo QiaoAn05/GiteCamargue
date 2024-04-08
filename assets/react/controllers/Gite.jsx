@@ -26,9 +26,12 @@ export default function () {
                                 <img src={ Mazet } alt="photo du Mazet" className='card-img' />
                                 <h5 className='card-title'>Le Mazet</h5>
                                 <p className='card-text'>Contenu gite 1</p>
-                                <div>
+                                <div className="d-flex justify-content-between">
                                     <a href="/tarifs" className='text-dark'>Voir le tarif</a>
-                                    
+                                    <div className="d-flex align-items-center">
+                                        <i className="bi bi-pencil-square text-dark  me-2"></i>
+                                        <i className="bi bi-trash text-dark"></i>
+                                    </div>
                                 </div>
                                 
                             </div>
@@ -40,7 +43,13 @@ export default function () {
                                 <img src={ Pigeonnier } alt="photo du Pigeonnier" className='card-img' />
                                 <h5 className='card-title'>Le Pigeonnier</h5>
                                 <p className='card-text'>Contenu gite 2</p>
-                                <a href="/tarifs" className='text-dark'>Voir le tarif</a>
+                                <div className="d-flex justify-content-between">
+                                    <a href="/tarifs" className='text-dark'>Voir le tarif</a>
+                                    <div className="d-flex align-items-center">
+                                        <i className="bi bi-pencil-square text-dark  me-2"></i>
+                                        <i className="bi bi-trash text-dark"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -50,7 +59,13 @@ export default function () {
                                 <img src={ Bergerie } alt="photo de la Bergerie" className='card-img' />
                                 <h5 className='card-title'>La Bergerie</h5>
                                 <p className='card-text'>Contenu gite 3</p>
-                                <a href="/tarifs" className='text-dark'>Voir le tarif</a>
+                                <div className="d-flex justify-content-between">
+                                    <a href="/tarifs" className='text-dark'>Voir le tarif</a>
+                                    <div className="d-flex align-items-center">
+                                        <i className="bi bi-pencil-square text-dark  me-2"></i>
+                                        <i className="bi bi-trash text-dark"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
