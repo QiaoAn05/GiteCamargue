@@ -29,8 +29,8 @@ export default function () {
                                 <div className="d-flex justify-content-between">
                                     <a href="/tarifs" className='text-dark'>Voir le tarif</a>
                                     <div className="d-flex align-items-center">
-                                        <i className="bi bi-pencil-square text-dark  me-2"></i>
-                                        <i className="bi bi-trash text-dark"></i>
+                                        <i className="bi bi-pencil-square text-success  me-2"></i>
+                                        <i className="bi bi-trash text-danger"></i>
                                     </div>
                                 </div>
                                 
@@ -46,8 +46,8 @@ export default function () {
                                 <div className="d-flex justify-content-between">
                                     <a href="/tarifs" className='text-dark'>Voir le tarif</a>
                                     <div className="d-flex align-items-center">
-                                        <i className="bi bi-pencil-square text-dark  me-2"></i>
-                                        <i className="bi bi-trash text-dark"></i>
+                                        <i className="bi bi-pencil-square text-success  me-2"></i>
+                                        <i className="bi bi-trash text-danger"></i>
                                     </div>
                                 </div>
                             </div>
@@ -62,8 +62,8 @@ export default function () {
                                 <div className="d-flex justify-content-between">
                                     <a href="/tarifs" className='text-dark'>Voir le tarif</a>
                                     <div className="d-flex align-items-center">
-                                        <i className="bi bi-pencil-square text-dark  me-2"></i>
-                                        <i className="bi bi-trash text-dark"></i>
+                                        <i className="bi bi-pencil-square text-success  me-2"></i>
+                                        <i className="bi bi-trash text-danger"></i>
                                     </div>
                                 </div>
                             </div>
