@@ -13,6 +13,10 @@ function CreateGite() {
                     <input type="text" className="form-control" id="giteName" />
                 </div>
                 <div className="mb-3">
+                    <label htmlFor="giteMaxPerson" className="form-label">Nombre de personne</label>
+                    <input type="text" className="form-control" id="giteMaxPerson" />
+                </div>
+                <div className="mb-3">
                     <label htmlFor="giteDescription" className="form-label">Description</label>
                     <textarea className="form-control" id="giteDescription" rows="3"></textarea>
                 </div>
