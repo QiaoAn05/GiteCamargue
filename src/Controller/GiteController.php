@@ -53,24 +53,26 @@ class GiteController extends AbstractController
         return new JsonResponse(['message' => 'Gite créé avec succès'], Response::HTTP_CREATED);
     }
 
-    // #[Route('gite/edit/{id}', name: 'gite_edit')]
-    // public function update(GiteRepository $giteRepository, EntityManagerInterface $entityManager, int $id): Response
-    // {
-    //     $gite = $giteRepository->find($id);
+    #[Route('gite/edit/{id}', name: 'gite_edit')]
+    public function update(Request $request, GiteRepository $giteRepository, EntityManagerInterface $entityManager, int $id): Response
+    {
+        $gite = $giteRepository->find($id);
 
-    //     if (!$gite) {
-    //         throw $this->createNotFoundException(
-    //             'No product found for id '.$id
-    //         );
-    //     }
-
-    //     $gite->setName('New product name!');
-    //     $entityManager->flush();
-
-    //     return $this->redirectToRoute('/gite', [
-    //         'id' => $gite->getId()
-    //     ]);
-    // }
+        if (!$gite) {
+            throw $this->createNotFoundException('No gite found for id ' . $id);
+        }
+    
+        $data = json_decode($request->getContent(), true);
+    
+        $gite->setName($data['giteName'] ?? $gite->getName());
+        $gite->setMaxPerson($data['giteMaxPerson'] ?? $gite->getMaxPerson());
+        $gite->setDescription($data['giteDescription'] ?? $gite->getDescription());
+        $gite->setImage($data['giteImage'] ?? $gite->getImage());
+        
+        $entityManager->flush();
+  
+        return $this->redirectToRoute('app_gite');
+    }
 
     #[Route('gite/delete/{id}', name: 'gite_delete', methods: 'DELETE')]
     public function delete(GiteRepository $giteRepository, EntityManagerInterface $entityManager, int $id): Response

@@ -5,6 +5,7 @@ import Pigeonnier from '../../images/gite-pigeonnier.jpg';
 import Bergerie from '../../images/gite-bergerie.jpg';
 import CreateGite from './CreateGite';
 import DeleteGite from './DeleteGite';
+import EditGite from './EditGite';
 
 export default function Gites() {
     const [gites, setGites] = useState([]);
@@ -41,9 +42,8 @@ export default function Gites() {
                                     <div className="d-flex justify-content-between">
                                         <a href="/tarifs" className='text-dark'>Voir le tarif</a>
                                         <div className="d-flex align-items-center">
-                                            <i className="bi bi-pencil-square text-success  me-2"></i>
+                                            <EditGite id={gite.id}/>
                                             <DeleteGite id={gite.id}/>
-                                            {/* <i className="bi bi-trash text-danger"></i> */}
                                         </div>
                                     </div>
                                 </div>
