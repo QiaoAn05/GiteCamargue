@@ -28,11 +28,6 @@ export default function Gites() {
             </div>
             <section className='container py-5'>
                 <CreateGite/>
-                {/* <div className='row'>
-                    <div className="d-flex mb-3">
-                        <button type='button' className='btn btn-dark' data-bs-toggle="modal" data-bs-target="#exampleModal">Ajouter un gite</button>
-                    </div>
-                </div> */}
 
                 <div className='row'>
                     {gites.map(gite => (
@@ -40,7 +35,7 @@ export default function Gites() {
                             <div className='card'>
                                 <div className='card-body'>
                                     <img src={gite.image} alt={`photo du ${gite.name}`} className='card-img' />
-                                    <h5 className='card-title'>{gite.name}</h5>
+                                    <h5 className='card-title'>{gite.name} - {gite.maxPerson} pers.</h5>
                                     <p className='card-text'>{gite.description}</p>
                                     <div className="d-flex justify-content-between">
                                         <a href="/tarifs" className='text-dark'>Voir le tarif</a>
@@ -54,26 +49,7 @@ export default function Gites() {
                         </div>
                     ))}
                 </div>
-            </section>
-
-            {/* <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog">
-                    <div className="modal-content">
-                    <div className="modal-header">
-                        <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div className="modal-body">
-                        ...
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-primary">Save changes</button>
-                    </div>
-                    </div>
-                </div>
-            </div> */}
-            
+            </section>           
         </>
     );
 }
