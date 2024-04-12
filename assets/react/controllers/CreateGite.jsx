@@ -19,7 +19,7 @@ function CreateGite() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    axios.post('api/newGite', formData)
+    axios.post('gite/create', formData)
       .then(response => {
         console.log(response.data);
         window.location.reload();

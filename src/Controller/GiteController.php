@@ -22,7 +22,7 @@ class GiteController extends AbstractController
         return $this->render('gite/gite.html.twig');
     }
 
-    #[Route('api/gites', name: 'api_gites', methods: 'GET')]
+    #[Route('gites/read', name: 'gites_read', methods: 'GET')]
     public function show(GiteRepository $giteRepository, SerializerInterface $serializer): Response
     {
         $gites = $giteRepository->findAll();
@@ -32,7 +32,7 @@ class GiteController extends AbstractController
         return new JsonResponse($data, Response::HTTP_OK, [], true);
     }
 
-    #[Route('api/newGite', name: 'api_newGite', methods: 'POST')]
+    #[Route('gite/create', name: 'gite_create', methods: 'POST')]
     public function create(Request $request, EntityManagerInterface $entityManager): Response
     {
         $data = json_decode($request->getContent(), true);
@@ -51,6 +51,42 @@ class GiteController extends AbstractController
         $entityManager->flush();
 
         return new JsonResponse(['message' => 'Gite créé avec succès'], Response::HTTP_CREATED);
+    }
+
+    // #[Route('gite/edit/{id}', name: 'gite_edit')]
+    // public function update(GiteRepository $giteRepository, EntityManagerInterface $entityManager, int $id): Response
+    // {
+    //     $gite = $giteRepository->find($id);
+
+    //     if (!$gite) {
+    //         throw $this->createNotFoundException(
+    //             'No product found for id '.$id
+    //         );
+    //     }
+
+    //     $gite->setName('New product name!');
+    //     $entityManager->flush();
+
+    //     return $this->redirectToRoute('/gite', [
+    //         'id' => $gite->getId()
+    //     ]);
+    // }
+
+    #[Route('gite/delete/{id}', name: 'gite_delete', methods: 'DELETE')]
+    public function delete(GiteRepository $giteRepository, EntityManagerInterface $entityManager, int $id): Response
+    {
+        $gite = $giteRepository->find($id);
+
+        if (!$gite) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+
+        $entityManager->remove($gite);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_gite');
     }
 
 }
