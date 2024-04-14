@@ -23,30 +23,53 @@ class GiteController extends AbstractController
     }
 
     #[Route('gites/read', name: 'gites_read', methods: 'GET')]
-    public function show(GiteRepository $giteRepository, SerializerInterface $serializer): Response
+    public function show(GiteRepository $giteRepository): Response
     {
         $gites = $giteRepository->findAll();
-        
-        $data = $serializer->serialize($gites, 'json');
     
-        return new JsonResponse($data, Response::HTTP_OK, [], true);
+        // Ajouter le chemin d'accès complet aux images
+        $gitesWithImages = [];
+        foreach ($gites as $gite) {
+            $imagePath = '/images/gite/' . $gite->getImageName();
+            $giteArray = [
+                'id' => $gite->getId(),
+                'name' => $gite->getName(),
+                'maxPerson' => $gite->getMaxPerson(),
+                'description' => $gite->getDescription(),
+                'image' => $imagePath, // Ajouter le chemin d'accès à l'image dans le tableau
+            ];
+            $gitesWithImages[] = $giteArray;
+        }
+    
+        // Retourner la liste des gîtes avec les chemins d'accès aux images
+        return new JsonResponse($gitesWithImages, Response::HTTP_OK);
     }
 
-    #[Route('gite/create', name: 'gite_create', methods: 'POST')]
+    #[Route('/gite/create', name: 'gite_create', methods: ['POST'])]
     public function create(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $data = json_decode($request->getContent(), true);
-        
+        $data = $request->request->all();
+
         $gite = new Gite();
         $gite->setName($data['giteName']);
         $gite->setMaxPerson($data['giteMaxPerson']);
         $gite->setDescription($data['giteDescription']);
-        $gite->setImage($data['giteImage']);
+        
+        // Gérer l'upload de fichier
+        $imageFile = $request->files->get('imageFile');
+        if ($imageFile) {
+            $imageName = md5(uniqid()) . '.' . $imageFile->guessExtension();
+            $imageFile->move(
+                $this->getParameter('kernel.project_dir') . '/public/images/gite',
+                $imageName
+            );
+            $gite->setImageName($imageName);
+        }
 
-        $now = new DateTime();
+        $now = new \DateTime();
         $gite->setCreatedAt($now);
         $gite->setUpdatedAt($now);
-
+        
         $entityManager->persist($gite);
         $entityManager->flush();
 
@@ -61,16 +84,34 @@ class GiteController extends AbstractController
         if (!$gite) {
             throw $this->createNotFoundException('No gite found for id ' . $id);
         }
-    
+
         $data = json_decode($request->getContent(), true);
-    
+
+        // Mettre à jour les propriétés du gîte
         $gite->setName($data['giteName'] ?? $gite->getName());
         $gite->setMaxPerson($data['giteMaxPerson'] ?? $gite->getMaxPerson());
         $gite->setDescription($data['giteDescription'] ?? $gite->getDescription());
-        $gite->setImage($data['giteImage'] ?? $gite->getImage());
-        
+
+        // Vérifier si une nouvelle image a été envoyée
+        if ($request->files->get('giteImageFile')) {
+            /** @var UploadedFile $imageFile */
+            $imageFile = $request->files->get('giteImageFile');
+
+            // Gérer l'upload de la nouvelle image
+            $imageName = md5(uniqid()) . '.' . $imageFile->guessExtension();
+            $imageFile->move(
+                $this->getParameter('kernel.project_dir') . '/public/images/gite',
+                $imageName
+            );
+
+            // Mettre à jour le nom de l'image du gîte
+            $gite->setImageName($imageName);
+        }
+
+        // Enregistrer les modifications dans la base de données
         $entityManager->flush();
-  
+
+        // Rediriger vers la page des gîtes après la mise à jour
         return $this->redirectToRoute('app_gite');
     }
 

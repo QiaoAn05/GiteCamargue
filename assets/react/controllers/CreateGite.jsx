@@ -8,7 +8,6 @@ function CreateGite() {
     giteName: '',
     giteMaxPerson: 0,
     giteDescription: '',
-    giteImage: ''
   });
 
   const handleInputChange = (event) => {
@@ -16,10 +15,20 @@ function CreateGite() {
     setFormData({ ...formData, [id]: value });
   };
 
+  const handleImage = (e) => {
+    setFormData({ ...formData, giteImageFile: e.target.files[0] });
+  }
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    axios.post('gite/create', formData)
+  
+    const formDataToSend = new FormData();
+    formDataToSend.append('giteName', formData.giteName);
+    formDataToSend.append('giteMaxPerson', formData.giteMaxPerson);
+    formDataToSend.append('giteDescription', formData.giteDescription);
+    formDataToSend.append('imageFile', formData.giteImageFile); // La clé est 'imageFile'
+  
+    axios.post('/gite/create', formDataToSend)
       .then(response => {
         console.log(response.data);
         window.location.reload();
@@ -48,8 +57,8 @@ function CreateGite() {
                     <textarea className="form-control" id="giteDescription" rows="3" onChange={handleInputChange}></textarea>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="giteImage" className="form-label">Image</label>
-                    <input type="file" className="form-control" id="giteImage" onChange={handleInputChange} />
+                    <label htmlFor="giteImageFile" className="form-label">Image</label>
+                    <input type="file" className="form-control" id="giteImageFile" name='file' onChange={handleImage} />
                 </div>
                 <button type="submit" className="btn btn-primary">Enregistrer</button>
             </form>
