@@ -9,7 +9,6 @@ function EditGite({ id }) {
     giteName: '',
     giteMaxPerson: 0,
     giteDescription: '',
-    giteImage: ''
   });
 
   const handleClose = () => setShow(false);
@@ -20,16 +19,28 @@ function EditGite({ id }) {
     setFormData({ ...formData, [id]: value });
   };
 
+  const handleImage = (e) => {
+    setFormData({ ...formData, giteImageFile: e.target.files[0] });
+  }
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
-	  axios.post(`gite/edit/${id}`, formData)
-	  .then(response => {
-      console.log('Gîte modifié avec succès', response.data);
-      window.location.reload();
-    })
-    .catch (error=> {
-      console.error('Erreur lors de la modification du gîte :', error);
-    });
+  
+    const formDataToSend = new FormData();
+    formDataToSend.append('giteName', formData.giteName);
+    formDataToSend.append('giteMaxPerson', formData.giteMaxPerson);
+    formDataToSend.append('giteDescription', formData.giteDescription);
+    formDataToSend.append('imageFile', formData.giteImageFile); // La clé est 'imageFile'
+  
+    axios.post(`gite/edit/${id}`, formDataToSend)
+      .then(response => {
+        console.log(response.data);
+        handleClose();
+        window.location.reload();
+      })
+      .catch(error => {
+        console.error(error);
+      });
   };
 
   return (
@@ -41,7 +52,7 @@ function EditGite({ id }) {
           <Modal.Title>Modifier le gîte</Modal.Title>
         </Modal.Header>
         <Modal.Body >
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}  enctype='multipart/form-data'>
             <div className="mb-3">
               <label htmlFor="giteName" className="form-label">Nom du gîte</label>
               <input type="text" className="form-control" id="giteName" onChange={handleInputChange} />
@@ -56,7 +67,7 @@ function EditGite({ id }) {
             </div>
             <div className="mb-3">
               <label htmlFor="giteImage" className="form-label">Image</label>
-              <input type="file" className="form-control" id="giteImage" onChange={handleInputChange} />
+              <input type="file" className="form-control" id="giteImage" onChange={handleImage} />
             </div>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>

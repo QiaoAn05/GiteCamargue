@@ -76,43 +76,62 @@ class GiteController extends AbstractController
         return new JsonResponse(['message' => 'Gite créé avec succès'], Response::HTTP_CREATED);
     }
 
-    #[Route('gite/edit/{id}', name: 'gite_edit')]
-    public function update(Request $request, GiteRepository $giteRepository, EntityManagerInterface $entityManager, int $id): Response
+    #[Route('/gite/edit/{id}', name: 'gite_edit', methods: ['POST'])]
+    public function update(Request $request, EntityManagerInterface $entityManager, int $id): Response
     {
-        $gite = $giteRepository->find($id);
-
+        $gite = $entityManager->getRepository(Gite::class)->find($id);
+    
         if (!$gite) {
             throw $this->createNotFoundException('No gite found for id ' . $id);
         }
-
-        $data = json_decode($request->getContent(), true);
-
-        // Mettre à jour les propriétés du gîte
-        $gite->setName($data['giteName'] ?? $gite->getName());
-        $gite->setMaxPerson($data['giteMaxPerson'] ?? $gite->getMaxPerson());
-        $gite->setDescription($data['giteDescription'] ?? $gite->getDescription());
-
+    
+        // Récupérer les données du formulaire
+        $formData = $request->request->all();
+    
         // Vérifier si une nouvelle image a été envoyée
-        if ($request->files->get('giteImageFile')) {
+        if ($request->files->get('imageFile')) {
+            // Supprimer l'ancienne image
+            $oldImageName = $gite->getImageName();
+            if ($oldImageName) {
+                $oldImagePath = $this->getParameter('kernel.project_dir') . '/public/images/gite/' . $oldImageName;
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
+            }
+    
+            // Télécharger et gérer la nouvelle image
             /** @var UploadedFile $imageFile */
-            $imageFile = $request->files->get('giteImageFile');
-
+            $imageFile = $request->files->get('imageFile');
+    
             // Gérer l'upload de la nouvelle image
             $imageName = md5(uniqid()) . '.' . $imageFile->guessExtension();
             $imageFile->move(
                 $this->getParameter('kernel.project_dir') . '/public/images/gite',
                 $imageName
             );
-
+    
             // Mettre à jour le nom de l'image du gîte
             $gite->setImageName($imageName);
         }
-
+    
+        // Mettre à jour les autres propriétés du gîte si elles ne sont pas vides
+        if (!empty($formData['giteName'])) {
+            $gite->setName($formData['giteName']);
+        }
+        if (!empty($formData['giteMaxPerson'])) {
+            $gite->setMaxPerson($formData['giteMaxPerson']);
+        }
+        if (!empty($formData['giteDescription'])) {
+            $gite->setDescription($formData['giteDescription']);
+        }
+    
+        $now = new \DateTime();
+        $gite->setUpdatedAt($now);
+    
         // Enregistrer les modifications dans la base de données
         $entityManager->flush();
-
-        // Rediriger vers la page des gîtes après la mise à jour
-        return $this->redirectToRoute('app_gite');
+    
+        return new JsonResponse(['message' => 'Gite modifié avec succès'], Response::HTTP_CREATED);
     }
 
     #[Route('gite/delete/{id}', name: 'gite_delete', methods: 'DELETE')]
