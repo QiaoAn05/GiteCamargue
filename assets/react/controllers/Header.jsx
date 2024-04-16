@@ -34,7 +34,8 @@ export default function () {
               <a className={`nav-link ${activeLink === '/contact' ? 'active' : ''}`} href="/contact">Contact</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Connexion/Déconnexion</a>
+              <a className="nav-link" href="/login">Connexion</a>
+              <a className="nav-link" href="/logout">Déconnexion</a>
             </li>
           </ul>
         </div>
