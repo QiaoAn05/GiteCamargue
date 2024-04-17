@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
 export default function () {
   const [activeLink, setActiveLink] = useState('/');
@@ -13,64 +16,49 @@ export default function () {
 
   useEffect(() => {
     axios.get('/api/user')
-        .then(response => {
-            setIsLoggedIn(response.data.isLoggedIn);
-            setUser(response.data.user);
-        })
-        .catch(error => {
-            console.error('Error fetching user details:', error);
-            setIsLoggedIn(false);
-        });
+      .then(response => {
+        setIsLoggedIn(response.data.isLoggedIn);
+        setUser(response.data.user);
+      })
+      .catch(error => {
+        console.error('Error fetching user details:', error);
+        setIsLoggedIn(false);
+      });
   }, []);
-  
-  return <>
+
+  return (
+    <Navbar expand="lg" className="bg-dark" variant="dark">
+      <Container>
         
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className="container-fluid">
-          {isLoggedIn === null && user && (
-            <a className="nav-link" href="#">Chargement...</a>
-          )}
-          {isLoggedIn === false && (
-            <a className="navbar-brand" href="/">LE MAS GUINOT</a>
-          )}
-          {isLoggedIn === true && user && (
-            <a className="navbar-brand" href="/">Bienvenue {user.username}</a>
-          )}
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-          <ul className="navbar-nav mb-lg-0">
-            <li className="nav-item">
-              <a className={`nav-link ${activeLink === '/' ? 'active' : ''}`} aria-current="page" href="/">Accueil</a>
-            </li>
-            <li className="nav-item">
-              <a className={`nav-link ${activeLink === '/about' ? 'active' : ''}`} href="/about">A propos</a>
-            </li>
-            <li className="nav-item">
-              <a className={`nav-link ${activeLink === '/gite' ? 'active' : ''}`} href="/gite">Nos Gîtes</a>
-            </li>
-            <li className="nav-item">
-              <a className={`nav-link ${activeLink === '/tarifs' ? 'active' : ''}`} href="/tarifs">Tarifs</a>
-            </li>
-            <li className="nav-item">
-              <a className={`nav-link ${activeLink === '/contact' ? 'active' : ''}`} href="/contact">Contact</a>
-            </li>
-            <li className="nav-item">
-              {isLoggedIn === null && (
-                <a className="nav-link" href="#">Chargement...</a>
-              )}
-              {isLoggedIn === false && (
-                <a className="nav-link" href="/login">Connexion</a>
-              )}
-              {isLoggedIn === true && (
-                <a className="nav-link" href="/logout">Déconnexion</a>
-              )}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    
-  </>
+        {isLoggedIn === null && (
+          <Nav.Link href="#" className="nav-link">Chargement...</Nav.Link>
+        )}
+        {isLoggedIn === false && (
+          <Navbar.Brand href="/">LE MAS GUINOT</Navbar.Brand>
+        )}
+        {isLoggedIn === true && (
+          <Navbar.Brand href="/">Bienvenue { user.username }</Navbar.Brand>
+        )}
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link href="/" className={`nav-link ${activeLink === '/' ? 'active' : ''}`}>Accueil</Nav.Link>
+            <Nav.Link href="/about" className={`nav-link ${activeLink === '/about' ? 'active' : ''}`}>A propos</Nav.Link>
+            <Nav.Link href="/gite" className={`nav-link ${activeLink === '/gite' ? 'active' : ''}`}>Nos Gîtes</Nav.Link>
+            <Nav.Link href="/tarifs" className={`nav-link ${activeLink === '/tarifs' ? 'active' : ''}`}>Tarifs</Nav.Link>
+            <Nav.Link href="/contact" className={`nav-link ${activeLink === '/contact' ? 'active' : ''}`}>Contact</Nav.Link>
+            {isLoggedIn === null && (
+              <Nav.Link href="#" className="nav-link">Chargement...</Nav.Link>
+            )}
+            {isLoggedIn === false && (
+              <Nav.Link href="/login" className="nav-link">Connexion</Nav.Link>
+            )}
+            {isLoggedIn === true && (
+              <Nav.Link href="/logout" className="nav-link">Déconnexion</Nav.Link>
+            )}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }

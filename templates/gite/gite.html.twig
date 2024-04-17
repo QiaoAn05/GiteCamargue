@@ -3,10 +3,17 @@
 {% block title %}Nos gites{% endblock %}
 
 {% block body %}
-    <div id='gite'></div>
+
+    {% if app.user %}
+        <div id='gite'></div>
+    {% endif %}
+    {% if not app.user %}
+        <div id='giteNotConnected'></div>
+    {% endif %}
     {% block javascripts %}
         {{ parent() }}
         {{ encore_entry_script_tags('gite') }}
+        {{ encore_entry_script_tags('giteNotConnected') }}
     {% endblock %}
 {% endblock %}
 

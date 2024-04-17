@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import CreateGite from './CreateGite';
-import DeleteGite from './DeleteGite';
-import EditGite from './EditGite';
 
-export default function Gites() {
+export default function GiteNotConnected() {
     const [gites, setGites] = useState([]);
 
     useEffect(() => {
@@ -25,7 +22,6 @@ export default function Gites() {
                 </div>
             </div>
             <section className='container py-5'>
-                <CreateGite/>
                 <div className='row'>
                     {gites.map(gite => (
                         <div key={gite.id} className='col-12 col-lg-4 mb-4'>
@@ -36,10 +32,6 @@ export default function Gites() {
                                     <p className='card-text'>{gite.description}</p>
                                     <div className="d-flex justify-content-between">
                                         <a href="/tarifs" className='text-dark'>Voir le tarif</a>
-                                        <div className="d-flex align-items-center">
-                                            <EditGite id={gite.id}/>
-                                            <DeleteGite id={gite.id}/>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

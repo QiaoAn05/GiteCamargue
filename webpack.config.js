@@ -24,8 +24,10 @@ Encore
     .addEntry('home', './assets/react/controllers/home.js')
     .addEntry('about', './assets/react/controllers/about.js')
     .addEntry('gite', './assets/react/controllers/gite.js')
+    .addEntry('giteNotConnected', './assets/react/controllers/giteNotConnected.js')
     .addEntry('tarifs', './assets/react/controllers/tarifs.js')
     .addEntry('contact', './assets/react/controllers/contact.js')
+    .addEntry('login', './assets/react/controllers/login.js')
     .addEntry('header', './assets/react/controllers/header.js')
     .addEntry('footer', './assets/react/controllers/footer.js')
 
