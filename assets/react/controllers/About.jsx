@@ -12,7 +12,7 @@ export default function () {
             <section className='container py-1 mt-4 text-center'>
               <h2>BIENVENUE AU MAS DE GUINOT</h2>
               <p className='text-justify my-3'>
-                La famille Crozat vous accueillent au Mas de Guinot , domaine rizicole de 80 hectares situé au cœur du parc régional de Camargue entre Arles et Salin de Giraud.
+                La famille Crozat vous accueille au Mas de Guinot , domaine rizicole de 80 hectares situé au cœur du parc régional de Camargue entre Arles et Salin de Giraud.
 
 Ce véritable mas traditionnel du 18e siècle propose 3 gîtes dans un cadre verdoyant pour un séjour en toute tranquillité.
                 </p>
