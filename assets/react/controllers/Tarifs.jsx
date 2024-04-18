@@ -8,6 +8,7 @@ export default function () {
                     <h1>Nos Tarifs</h1>
                 </div>
             </div>
+            <p className='m-3 text-center' style={{color: "red"}}>Mise à jour des tarifs bientôt disponible</p>
             <section className='container py-1 mt-4'>
                 <table className="table">
                     <thead className='table-dark'>

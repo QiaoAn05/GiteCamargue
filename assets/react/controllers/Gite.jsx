@@ -46,7 +46,7 @@ export default function Gites() {
                         </div>
                     ))}
                 </div>
-            </section>           
+            </section>
         </>
     );
 }

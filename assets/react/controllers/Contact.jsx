@@ -8,6 +8,7 @@ export default function () {
                     <h1>Contact</h1>
                 </div>
             </div>
+            <p className='m-3 text-center' style={{color: "red"}}>Service bientôt disponible</p>
             <section className='container-md p-5 my-5'  style={{ maxWidth: "500px" }}>
                 <h2 id="contact" className='text-center mb-5'>Formulaire de contact</h2>
                 <form action="submit" className="mx-auto">

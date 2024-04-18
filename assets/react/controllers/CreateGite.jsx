@@ -46,11 +46,11 @@ function CreateGite() {
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="giteName" className="form-label">Nom du gîte</label>
-                    <input type="text" className="form-control" id="giteName" onChange={handleInputChange} />
+                    <input type="text" className="form-control" id="giteName" onChange={handleInputChange} required/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="giteMaxPerson" className="form-label">Nombre de personne</label>
-                    <input type="number" className="form-control" id="giteMaxPerson" onChange={handleInputChange} />
+                    <input type="number" className="form-control" id="giteMaxPerson" onChange={handleInputChange} required/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="giteDescription" className="form-label">Description</label>
@@ -58,7 +58,7 @@ function CreateGite() {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="giteImageFile" className="form-label">Image</label>
-                    <input type="file" className="form-control" id="giteImageFile" name='file' onChange={handleImage} />
+                    <input type="file" className="form-control" id="giteImageFile" name='file' onChange={handleImage} required/>
                 </div>
                 <button type="submit" className="btn btn-primary">Enregistrer</button>
             </form>
