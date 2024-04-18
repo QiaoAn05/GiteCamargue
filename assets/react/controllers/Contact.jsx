@@ -23,7 +23,7 @@ export default function () {
                         <label htmlFor="message" className="form-label">Message :</label>
                         <textarea className="form-control" id="message" name="message" rows="5" placeholder="Entrez votre message" required></textarea>
                     </div>
-                    <button type="submit" className="btn btn-dark text-white w-100">Envoyer</button>
+                    <button type="submit" className="btn btn-dark text-white w-100" disabled>Envoyer</button>
                 </form>
             </section>
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 export default function Login() {
 
@@ -9,9 +9,6 @@ export default function Login() {
                     <h1>Connexion</h1>
                 </div>
             </div>
-            <section className='container py-5'>
-               
-            </section>           
         </>
     );
 }
